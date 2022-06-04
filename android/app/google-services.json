@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "122495552906",
+    "project_id": "notez-d2c4c",
+    "storage_bucket": "notez-d2c4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122495552906:android:25e743567b15e196850c73",
+        "android_client_info": {
+          "package_name": "me.anjace.notez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122495552906-935k0qkv4hh8gki5166k4k1k1d8g3ov4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8L090btvLhH6FIZL3p6s83uidWvdEtto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122495552906-935k0qkv4hh8gki5166k4k1k1d8g3ov4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
