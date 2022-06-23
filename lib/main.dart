@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:notez/constants/routes.dart';
-import 'package:notez/firebase_options.dart';
 import 'package:notez/services/auth/auth_service.dart';
 import 'package:notez/views/login_view.dart';
 import 'package:notez/views/notes/new_note_view.dart';
 import 'package:notez/views/notes/notes_view.dart';
 import 'package:notez/views/register_view.dart';
 import 'package:notez/views/verify_email_view.dart';
-import 'package:path/path.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
   runApp(
     MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const HomePage(),
-        routes: {
-          loginRoute: (context) => const LoginView(),
-          registerRoute: (context) => const RegisterView(),
-          notesRoute: (context) => const NotesView(),
-          verifyEmailRoute: (context) => const VerifyEmailView(),
-          newNoteRoute: (context) => const NewNoteView(),
-        }),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
+      routes: {
+        loginRoute: (context) => const LoginView(),
+        registerRoute: (context) => const RegisterView(),
+        notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
+        newNoteRoute: (context) => const NewNoteView(),
+      },
+    ),
   );
 }
 
@@ -40,7 +38,6 @@ class HomePage extends StatelessWidget {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             final user = AuthService.firebase().currentUser;
-
             if (user != null) {
               if (user.isEmailVerified) {
                 return const NotesView();
@@ -50,7 +47,6 @@ class HomePage extends StatelessWidget {
             } else {
               return const LoginView();
             }
-
           default:
             return const CircularProgressIndicator();
         }

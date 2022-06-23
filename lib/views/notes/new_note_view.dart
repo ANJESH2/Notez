@@ -6,7 +6,7 @@ class NewNoteView extends StatefulWidget {
   const NewNoteView({Key? key}) : super(key: key);
 
   @override
-  State<NewNoteView> createState() => _NewNoteViewState();
+  _NewNoteViewState createState() => _NewNoteViewState();
 }
 
 class _NewNoteViewState extends State<NewNoteView> {
@@ -23,7 +23,9 @@ class _NewNoteViewState extends State<NewNoteView> {
 
   void _textControllerListener() async {
     final note = _note;
-    if (note == null) return;
+    if (note == null) {
+      return;
+    }
     final text = _textController.text;
     await _notesService.updateNote(
       note: note,
@@ -84,13 +86,14 @@ class _NewNoteViewState extends State<NewNoteView> {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
+              _note = snapshot.data as DatabaseNote;
               _setupTextControllerListener();
               return TextField(
                 controller: _textController,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: const InputDecoration(
-                  hintText: 'Start Typing your note....',
+                  hintText: 'Start typing your note...',
                 ),
               );
             default:
